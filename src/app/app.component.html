@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-brand">
+                  <li id="logo"><i class="far fa fa-list-alt"></i> TODO </li>
+                </ul>
+                <ul *ngIf="isAuthenticated" class="nav navbar-nav">
+                    <li id="todos" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact:true}"><a routerLink="todos">Todos </a></li>
+                    <li id="addTodo" routerLinkActive="active"><a routerLink="add">Add Todo</a></li> 
+                </ul>
+                <ul  class="nav navbar-nav navbar-right">
+                  <li id="auth" *ngIf="!isAuthenticated" routerLinkActive="active"><a routerLink="auth">Auth</a></li>
+                  <li id="logout" *ngIf="isAuthenticated" routerLinkActive="active"><a routerLink="logout" (click)="onLogout()">Logout</a></li>
+                </ul>
+
+            </div>
+        </div>    
+    </div>
+    
+    </div>
+  </div> 
+  <div class="row">
+    <div class="col-md-11">
+      <router-outlet></router-outlet>
+    </div>
+    </div>
+</div>

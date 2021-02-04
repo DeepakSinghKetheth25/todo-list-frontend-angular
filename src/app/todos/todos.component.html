@@ -1,0 +1,36 @@
+<div class="row">
+    <app-todo-nav 
+    (showAllTodos)="onshowAllTodos()"
+    (showCompletedTodo)="onshowCompleted()" 
+    (showIncompleteTodo)="onshowIncomplete()"
+    ></app-todo-nav>
+</div>
+
+<div class="row"> 
+    <app-todo *ngFor="let singletodo of todos" [todo]="singletodo"
+    (deleteTodo) = "onDeleteTodo($event)"
+    (updatedTodo) = "onUpdateTodo($event)"
+    (updateStatus) = "onUpdateStatus($event)"
+    (newTodo) = "onAddTodo($event)"
+    >
+    </app-todo>
+</div> 
+
+<!-- <div class="row" *ngFor="let todo of todos">
+    <div class="single-todo">
+           <h5>{{todo.title}}</h5><hr>
+        <div class="row">
+            <div class="col-xs-10 ">
+                <p>{{todo.description}}</p>
+            </div>
+            <div class="col-xs-2 ">
+                <input class="check" type="checkbox"> 
+                <span class="vl"></span>
+                <button class="btn btn-danger remove">&times;</button>
+                 <button type="button" class="remove close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> 
+             </div>
+        </div>
+    </div>
+</div> --> 

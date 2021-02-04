@@ -1,0 +1,36 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { PageNotFoundComponent } from './page-not-found.component';
+
+describe('PageNotFoundComponent', () => {
+  let component: PageNotFoundComponent;
+  let fixture: ComponentFixture<PageNotFoundComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ PageNotFoundComponent ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(PageNotFoundComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it(`should have message as 'The Page you requested was not found !'`, () => {
+    let p : HTMLElement;
+    p=fixture.nativeElement.querySelector('p');
+
+    expect(p.textContent).toBe('The Page you requested was not found !');
+    
+  });
+
+
+
+});

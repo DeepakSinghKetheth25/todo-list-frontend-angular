@@ -1,0 +1,38 @@
+    <div class="single-todo">
+        <div class="row">
+            <div class="title col-xs-10"><h5>{{todo.title}}</h5></div>
+            <div class="status col-xs-2"><h5 #status>{{todo.status}}</h5></div>
+        </div>   
+           <hr>
+        <div class="row">
+            <div class="col-xs-9 ">
+                <p>{{todo.description}}</p>
+            </div>
+            <div class="col-xs-1 "><input class="check" type="checkbox" (change)="onUpdateStatus()" *ngIf="!checkboxChecked && !enableEdit" [(checked)]="checkboxChecked"></div>
+            <div class="col-xs-1 "><button class="btn btn-primary edit"  [disabled]="checkboxChecked" (click)="onEdit()" >Edit</button></div>    
+            <div class="col-xs-1 "><button class="btn btn-danger remove" (click)="onDelete($event)" >&times;</button></div>
+                
+                <!-- <button type="button" class="remove close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+            
+        </div>
+        
+        <div class="row" *ngIf="enableEdit">
+            <hr>
+            <div class="form-group col-xs-12">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" [(ngModel)]="updatedTitle"><br>
+                <label for="title">Description</label>
+                <input type="text" class="form-control" [(ngModel)]="updatedDescription">
+            </div>    
+            
+            <div class="col-xs-2">
+            <button class="btn btn-success form-control col-xs-2"   (click)="onUpdate($event)">Update</button>
+            </div>
+            
+        </div>        
+        
+        
+
+    </div>
